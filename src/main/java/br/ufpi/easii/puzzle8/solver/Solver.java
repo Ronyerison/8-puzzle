@@ -10,18 +10,26 @@ import br.ufpi.easii.puzzle8.model.Board;
 public class Solver {
 	private Board boardInicial;
 	private List<Board> solution;
+	int count = 0;
 	
 	public Solver(Board inicial) {
 		this.boardInicial = inicial;
+		this.solution = new ArrayList<>();
 	}
 	
 	public List<Board> solv(){
 		List<Board> visited = new ArrayList<Board>();
 		List<Board> front = new ArrayList<Board>();
 		Board actual = boardInicial.clone();
+		visited.add(actual);
 		while(!actual.isGoal()){
+			count++;
+			if (count >= 1000) {
+				System.out.println("z");
+				break;
+			}
 			for (Board neighbor : actual.expandNeighbors()) {
-				if (!visited.contains(neighbor) || !front.contains(neighbor)) {
+				if (!visited.contains(neighbor) && !front.contains(neighbor)) {
 					front.add(neighbor);
 				}
 			}
