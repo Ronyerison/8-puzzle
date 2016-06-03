@@ -187,10 +187,22 @@ public class Board {
 
 	@Override
 	public String toString() {
-		return "Board [numbers=" + Arrays.toString(numbers)
-				+ ", outNumbersSum=" + outNumbersSum + ", manhattan="
-				+ manhattan + ", cost=" + cost + ", totalCost=" + totalCost
-				+ "]";
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < numbers.length; i++) {
+			for (int j = 0; j < numbers[i].length; j++) {
+				sb.append(numbers[i][j] + " ");
+				if(i == 0 && j == 2){
+					sb.append("outNumbersSum=" + outNumbersSum + ", manhattan="
+				+ manhattan + ", cost=" + cost + ", totalCost=" + totalCost);
+				}
+			}
+			sb.append("\n");
+		}
+		return sb.toString();
+//		return "Board [numbers=" + Arrays.toString(numbers)
+//				+ ", outNumbersSum=" + outNumbersSum + ", manhattan="
+//				+ manhattan + ", cost=" + cost + ", totalCost=" + totalCost
+//				+ "]";
 	}
 	
 	

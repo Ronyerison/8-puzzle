@@ -10,9 +10,11 @@ import br.ufpi.easii.puzzle8.model.Board;
 public class Solver {
 	private Board boardInicial;
 	private List<Board> solution;
+
 	
 	public Solver(Board inicial) {
 		this.boardInicial = inicial;
+		this.solution = new ArrayList<Board>();
 	}
 	
 	public List<Board> solv(){
