@@ -21,9 +21,10 @@ public class Solver {
 		List<Board> visited = new ArrayList<Board>();
 		List<Board> front = new ArrayList<Board>();
 		Board actual = boardInicial.clone();
+		visited.add(actual);
 		while(!actual.isGoal()){
 			for (Board neighbor : actual.expandNeighbors()) {
-				if (!visited.contains(neighbor) || !front.contains(neighbor)) {
+				if (!visited.contains(neighbor) && !front.contains(neighbor)) {
 					front.add(neighbor);
 				}
 			}

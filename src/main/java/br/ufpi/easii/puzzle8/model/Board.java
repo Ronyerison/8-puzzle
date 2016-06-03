@@ -57,7 +57,7 @@ public class Board {
 	private int calculeManhattan(){
 		int sum = 0;
 		for (int x = 0; x < numbers.length; x++) {
-			for (int y = 0; y < numbers.length; y++) {
+			for (int y = 0; y < numbers[x].length; y++) {
 				Point p = goal.get(numbers[x][y]);
 				int distance = Math.abs(x - p.x) + Math.abs(y - p.y);
 				sum += distance;
