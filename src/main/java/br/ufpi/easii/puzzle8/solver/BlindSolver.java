@@ -3,24 +3,24 @@ package br.ufpi.easii.puzzle8.solver;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufpi.easii.puzzle8.model.BaseBoard;
+import br.ufpi.easii.puzzle8.model.Board;
 
 public class BlindSolver {
-	private BaseBoard startBoard;
-	private List<BaseBoard> solution;
+	private Board startBoard;
+	private List<Board> solution;
 	
-	public BlindSolver(BaseBoard startBoard) {
+	public BlindSolver(Board startBoard) {
 		this.startBoard = startBoard;
-		this.solution = new ArrayList<BaseBoard>();
+		this.solution = new ArrayList<Board>();
 	}
 	
-	public List<BaseBoard> breadthSearch(){
-		List<BaseBoard> visited = new ArrayList<BaseBoard>();
-		List<BaseBoard> front = new ArrayList<BaseBoard>();
-		BaseBoard current = startBoard.clone();
+	public List<Board> breadthSearch(){
+		List<Board> visited = new ArrayList<Board>();
+		List<Board> front = new ArrayList<Board>();
+		Board current = startBoard.clone();
 		visited.add(current);
 		while(!current.isGoal()){
-			for (BaseBoard neighbor : current.expandNeighbors()) {
+			for (Board neighbor : current.expandNeighbors()) {
 				if (!visited.contains(neighbor) && !front.contains(neighbor))
 					front.add(neighbor);
 			}
@@ -37,13 +37,13 @@ public class BlindSolver {
 		return solution;
 	}
 	
-	public List<BaseBoard> depthSearch(){
-		List<BaseBoard> visited = new ArrayList<BaseBoard>();
-		List<BaseBoard> front = new ArrayList<BaseBoard>();
-		BaseBoard current = startBoard.clone();
+	public List<Board> depthSearch(){
+		List<Board> visited = new ArrayList<Board>();
+		List<Board> front = new ArrayList<Board>();
+		Board current = startBoard.clone();
 		visited.add(current);
 		while(!current.isGoal()){
-			for (BaseBoard neighbor : current.expandNeighbors()) {
+			for (Board neighbor : current.expandNeighbors()) {
 				if (!visited.contains(neighbor) && !front.contains(neighbor))
 					front.add(neighbor);
 			}
@@ -60,11 +60,11 @@ public class BlindSolver {
 		return solution;
 	}
 	
-	public List<BaseBoard> getSolution(){
+	public List<Board> getSolution(){
 		return this.solution;
 	}
 	
-	public BaseBoard getBoardInicial() {
+	public Board getBoardInicial() {
 		return startBoard;
 	}
 	
