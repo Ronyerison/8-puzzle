@@ -55,6 +55,26 @@ public class Main {
 			System.out.println(solution.get(i).toString());
 			System.out.println("");
 		}
-
+		
+		//Teste profundidade/largura
+//		int[][] inicial = {{2,1,3},{4,5,6},{8,7,0}};
+////		int[][] inicial = {{1,8,2},{0,4,3},{7,6,5}};
+//		Map<Integer, Point> goal = new HashMap<Integer, Point>();
+//		goal.put(1, new Point(0, 0));
+//		goal.put(2, new Point(0, 1));
+//		goal.put(3, new Point(0, 2));
+//		goal.put(4, new Point(1, 0));
+//		goal.put(5, new Point(1, 1));
+//		goal.put(6, new Point(1, 2));
+//		goal.put(7, new Point(2, 0));
+//		goal.put(8, new Point(2, 1));
+//		goal.put(0, new Point(2, 2));
+//		
+//		BaseBoard boardInicial = new BaseBoard(inicial, goal, 0, null);
+//		BlindSolver solver = new BlindSolver(boardInicial);
+//		
+////		List<BaseBoard> solution = solver.breadthSearch();
+//		List<BaseBoard> solution = solver.depthSearch();
+//		System.out.println(Arrays.toString(solution.toArray()));
 	}
 }
