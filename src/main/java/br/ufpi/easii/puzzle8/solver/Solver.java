@@ -45,6 +45,41 @@ public class Solver {
 		return null;
 	}
 	
+	public List<Board> greedy(){
+		List<Board> visited = new ArrayList<Board>();
+		List<Board> front = new ArrayList<Board>();
+		Board actual = boardInicial.clone();
+		actual.setTotalCost(actual.getManhattan() * actual.getOutNumbersSum());
+		visited.add(actual);
+		int iterations = 0;
+		while(!actual.isGoal()){
+			for (Board neighbor : actual.expandNeighbors()) {
+				if (!visited.contains(neighbor) && !front.contains(neighbor)) {
+					neighbor.setTotalCost(neighbor.getManhattan() * neighbor.getOutNumbersSum());
+					front.add(neighbor);
+				}
+			}
+			sort(front);
+			actual = front.get(0).clone();
+			front.remove(0);
+			visited.add(actual);
+			iterations++;
+		}
+		
+		if(actual.isGoal()){
+			while(actual.getParent() != null){
+				this.solution.add(actual);
+				actual = actual.getParent();
+			}
+			solution.add(boardInicial);
+			System.out.println("Número de execuções: " + iterations);
+			return solution;
+		}
+		
+		return null;
+	}
+	
+	
 	public void sort(List<Board> boards){
 		Collections.sort(boards, new Comparator<Board>() {
 			@Override

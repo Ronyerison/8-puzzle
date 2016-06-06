@@ -163,6 +163,10 @@ public class Board {
 		this.parent = parent;
 	}
 
+	public void setTotalCost(Integer totalCost) {
+		this.totalCost = totalCost;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
