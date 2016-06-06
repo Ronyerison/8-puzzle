@@ -33,7 +33,7 @@ public class Board {
 		}else{
 			this.isGoal = true;
 		}
-		this.totalCost = (this.manhattan * outNumbersSum) + this.cost;
+		this.totalCost = this.manhattan + this.cost;
 		this.parent = parent;
 	}
 	

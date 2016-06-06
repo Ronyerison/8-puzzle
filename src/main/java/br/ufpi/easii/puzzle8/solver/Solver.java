@@ -55,18 +55,19 @@ public class Solver {
 		return null;
 	}
 	
+	
 	public List<Board> greedy(){
 		List<Board> visited = new ArrayList<Board>();
 		List<Board> front = new ArrayList<Board>();
 		Board actual = boardInicial.clone();
-		actual.setTotalCost(actual.getManhattan() * actual.getOutNumbersSum());
+		actual.setTotalCost(actual.getManhattan());
 		visited.add(actual);
 		this.count = 0;
 		this.maxFront = 0;
 		while(!actual.isGoal()){
 			for (Board neighbor : actual.expandNeighbors()) {
 				if (!visited.contains(neighbor) && !front.contains(neighbor)) {
-					neighbor.setTotalCost(neighbor.getManhattan() * neighbor.getOutNumbersSum());
+					neighbor.setTotalCost(neighbor.getManhattan());
 					front.add(neighbor);
 				}
 			}
