@@ -7,6 +7,7 @@ import java.util.Map;
 import br.ufpi.easii.puzzle8.model.Board;
 import br.ufpi.easii.puzzle8.model.Point;
 import br.ufpi.easii.puzzle8.solver.BlindSolver;
+import br.ufpi.easii.puzzle8.solver.Solver;
 
 public class Main {
 	private static final long KILOBYTE = 1024L;
@@ -31,9 +32,11 @@ public class Main {
 		Board boardInicial = new Board(inicial, goal, 0, null);
 		List<Board> solution = null;
 		long sum = 0;
+		Solver solver = null;
+		
 		for (int i = 0; i < 10; i++) {
-			BlindSolver solver = new BlindSolver(boardInicial);
-//			Solver solver = new Solver(boardInicial);
+//			BlindSolver solver = new BlindSolver(boardInicial);
+			solver = new Solver(boardInicial);
 			long start = System.currentTimeMillis();
 			solution = solver.breadthSearch();
 			long end = System.currentTimeMillis();
@@ -50,8 +53,10 @@ public class Main {
 	    System.out.println("Used memory is bytes: " + memory);
 	    System.out.println("Used memory is kilobytes: "
 	        + bytesToMegabytes(memory));
-	  
-
+	    
+	    System.out.println("Max Front: " + solver.maxFront);
+	    System.out.println("Número de Visitados: " + solver.count);
+	    
 		for (int i = solution.size() - 1; i >= 0; i--) {
 			System.out.println(solution.get(i).toString());
 			System.out.println("");
